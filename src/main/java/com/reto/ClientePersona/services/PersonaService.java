@@ -26,7 +26,7 @@ public class PersonaService {
     }
 
     public Persona getPersonaById(Long id) {
-        return personaRepository.findById(id).orElse(null);
+        return personaRepository.findById(id).orElseThrow(() -> new RuntimeException("Persona no encontrada"));
     }
 
     public PersonaDto createPersona(PersonaDto personaDto) {

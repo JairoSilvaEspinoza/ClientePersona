@@ -49,7 +49,7 @@ public class ClienteService {
 
     public ClienteDto getClienteById(Long id) {
         Optional<Cliente> clienteOptional = clienteRepository.findById(id);
-        return clienteOptional.map(ClienteMapper.INSTANCE::clienteToDto).orElse(null);
+        return clienteOptional.map(ClienteMapper.INSTANCE::clienteToDto).orElseThrow(() -> new RuntimeException("cliente no encontrada"));
     }
 
     public List<ClienteDto> getAllClientes() {

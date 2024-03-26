@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -29,4 +30,8 @@ Persona implements Serializable {
     @JsonIgnore
     @OneToOne(mappedBy = "persona")
     private Cliente cliente;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "persona")
+    private List<Cuenta> cuentas;
 }
